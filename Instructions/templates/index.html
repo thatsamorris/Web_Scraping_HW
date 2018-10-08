@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body style=" background-color: black;">
+  <div class="container-fluid text-center" style="background-color: slategrey;">
+    <h1 class="jumbotron" style="
+    background-color:  indianred;">Mars Data</h1>
+    <a class="btn btn-primary btn-lg" href="/scrape" role="button">scrape data</a>
+    <div class="row">
+      <div class="col-md-offset-1 col-md-5" style="text-align: left;">
+        <h4 style="font-weight: bold;">Latest Mars News</h4>
+        <div style="background-color:  indianred;border: solid;padding: 10px;/* border-color: white;">
+          <div>
+            <h2> {{ mars_data.latest_headline }} </h2>
+            <p>
+              {{ mars_data.latest_news }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" style="text-align: left;">
+        <h4 style="
+            font-weight: bold;">Current Mars Weather Tweet</h4>
+        <div style="border: solid;background-color: indianred; padding: 25px;">
+          {{mars_data.Mars_weather}}
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <div class="row" style="
+    text-align: left;
+    font-weight: bold;">
+
+      <div class=" col-md-offset-1 col-md-5">
+        <h4>
+          <strong>Mars Facts Table</strong>
+        </h4>
+        <div style="background-color: indianred; border: solid">
+          {{ mars_data.Mars_facts|safe}}
+        </div>
+
+      </div>
+      <div class="col-md-5">
+        <h4>
+          <strong>Featured Mars Image</strong>
+        </h4>
+        <div style="
+        background-color: indianred;
+        border:  solid;
+        padding: 10px;
+    ">
+          <img src="{{mars_data.featured_image_url}}" width="100%">
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-offset-5 col-md-6" style="text-align: left;">
+        <h4>
+          <strong>Mars Hemispheres</strong>
+        </h4>
+      </div>
+    </div>
+    <br>
+    <div style="background-color: indianred;border: solid;padding: 10px;font-weight: bold;">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-5">
+          <h5>
+            <strong>{{ mars_data.Hemispheres[0]['title']}}</strong>
+          </h5>
+          <img src="{{ mars_data.Hemispheres[0]['url']}}" width="100%">
+        </div>
+        <div class="col-md-5">
+          <h5>
+            <strong>{{ mars_data.Hemispheres[1]['title']}}</strong>
+          </h5>
+          <img src="{{ mars_data.Hemispheres[1]['url']}}" width="100%">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-5">
+          <h5>
+            <strong>{{ mars_data.Hemispheres[2]['title']}}</strong>
+          </h5>
+          <img src="{{ mars_data.Hemispheres[2]['url']}}" width="100%">
+        </div>
+        <div class="col-md-5">
+          <h5>
+            <strong>{{ mars_data.Hemispheres[3]['title']}}</strong>
+          </h5>
+          <img src="{{ mars_data.Hemispheres[3]['url']}}" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<!-- mars_data = { 
+'latest_headline':latest_article_headline,
+'latest_news': latest_article, 
+'featured_image_url':image_path, 
+'Mars_weather': mars_weather, 
+'Mars_facts': mars_table_html, 
+'Hemispheres': hemisphere_dicts} -->
